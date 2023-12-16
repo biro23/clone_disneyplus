@@ -1,7 +1,20 @@
 // importando o arquivo -hero.scss
-@use 'hero';
 
+@use "variaveis";
+@use "hero";
 
+// importando a fonte do site
+@font-face {
+  font-family: Avenir;
+  src: url(../../Assets/fonts/Avenir-Regular.woff2);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url(../../Assets/fonts/Avenir-Bold.woff2);
+  font-weight: 700;
+}
 
 // starting the reset here;
 * {
@@ -10,27 +23,23 @@
   box-sizing: border-box;
 }
 
-// creating a variable
-$corDeFundo: #040714;
-$corTextoPrincipal: silver;
-$corTextoSecundario: #f9f9f9;
-
 body {
-  background-color: $corDeFundo;
+  background-color: variaveis.$corDeFundo;
+  font-family: Avenir, sans-serif;
 }
 
 // criando um mixing, vai receber um argumento que vai ser o font-size
 @mixin text($fontsize: 16px) {
   font-size: $fontsize;
   line-height: $fontsize + 10px;
-  color: $corTextoPrincipal;
+  color: variaveis.$corTextoPrincipal;
 }
 
 // mixing para o titulo
 
 @mixin title($fontsize: 40px) {
   @include text($fontsize);
-  color: $corTextoSecundario;
+  color: variaveis.$corTextoSecundario;
 }
 
 // criando 3 classes
@@ -49,7 +58,7 @@ body {
 
 .link-text {
   @include text(18px);
-  color: $corTextoSecundario;
+  color: variaveis.$corTextoSecundario;
   text-decoration: underline;
 }
 
